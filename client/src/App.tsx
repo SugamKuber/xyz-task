@@ -1,8 +1,10 @@
+import ImageUpload from './components/ImageUpload'
 function App() {
   return (
     <>
       <h1 className="text-4xl font-bold underline">
-        Hello world!
+        car image uploader
+        <ImageUpload/>
       </h1>
     </>
   )

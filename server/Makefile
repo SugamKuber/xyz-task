@@ -15,7 +15,6 @@ clean:
 	@echo "Cleaning up..."
 	rm -f $(BINARY_NAME)
 
-
 fmt:
 	@echo "Formatting Go code..."
 	go fmt ./...

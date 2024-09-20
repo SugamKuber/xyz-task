@@ -1,12 +1,20 @@
 package main
 
 import (
-    "server/internals/api/routers"
-    "github.com/gin-gonic/gin"
+	"github.com/gin-gonic/gin"
+	"server/internals/api/routers"
+	db "server/internals/init"
+	"server/internals/middlewares"
 )
 
 func main() {
-    router := gin.Default()
-    routers.SetupRoutes(router)
-    router.Run(":8080")
+	db.InitDB()
+
+	router := gin.Default()
+	router.Use(middlewares.CORSConfig())
+	router.Use(middlewares.Logger())
+	routers.HealthRoutes(router)
+	routers.CarRoutes(router)
+
+	router.Run(":8080")
 }

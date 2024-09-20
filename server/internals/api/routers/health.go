@@ -1,13 +1,13 @@
 package routers
 
 import (
-    "server/internals/api/controllers"
-    "github.com/gin-gonic/gin"
+	"github.com/gin-gonic/gin"
+	"server/internals/api/controllers"
 )
 
-func SetupRoutes(router *gin.Engine) {
-    apiGroup := router.Group("/api")
-    {
-        apiGroup.GET("/h", controllers.Health)
-    }
+func HealthRoutes(router *gin.Engine) {
+	apiGroup := router.Group("/api")
+	{
+		apiGroup.GET("/h", controllers.Health)
+	}
 }
